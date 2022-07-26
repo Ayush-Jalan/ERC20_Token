@@ -8,6 +8,7 @@ import stones from './Stone';
 import woods from './Wood';
 import {BrowserRouter,Routes,Route, Switch, Link} from "react-router-dom";
 import TransferF from './pages/Fruit/Transfer';
+import TransactionF from './pages/Fruit/Transaction';
 
  
 
@@ -171,7 +172,7 @@ const App = () => {
             </nav>
             <Routes>
               <Route path="Fruit/Transfer" element={<TransferF />} />
-              <Route path="/Fruit/transaction" />
+              <Route path="/Fruit/transaction" element={<TransactionF />} />
             </Routes>
           </BrowserRouter>
           <p className="token-text">Gold Token</p>
