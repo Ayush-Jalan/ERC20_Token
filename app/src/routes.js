@@ -1,7 +1,7 @@
 const routes= require('next-routes')();
 
 routes
-.add('Fruit/Transfer')
+.add('/Fruit/Transfer')
 .add('/Fruit/transaction')
 .add('/Gold/transfer')
 .add('/Gold/transaction')
