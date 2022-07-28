@@ -52,6 +52,7 @@ const TransactionF = () => {
       <Header/>
         <div className="token">
           <p className="token-text">Fruit Token</p>
+          <p className="token-text">Transaction History</p>
         </div>  
         <TransactionTable head = {["Supplier" , "Raw Material", "Quantity Left Kg"]} Arr = {rawMaterialArr}></TransactionTable>
         <div className="Txntable">

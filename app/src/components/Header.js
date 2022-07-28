@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import {BrowserRouter,Routes,Route, Switch, Link} from "react-router-dom";
+import './Header.css';
 
 const Header = () => {
 
@@ -67,6 +68,12 @@ const Header = () => {
         <p className="sub-text">
           Keep a track of your Age Of Empire Tokens!
         </p>   
+        <nav>
+          <ul>
+          <li><Link to="/">Home</Link></li>
+
+          </ul>
+        </nav>
         {currentAccount === "" ? (
           renderNotConnectedContainer()
         ) : (

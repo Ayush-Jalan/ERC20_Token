@@ -22,7 +22,7 @@ import Home from './pages/home';
 
 const App = () => {
 
-  const [currentAccount, setCurrentAccount] = useState("");
+  /*const [currentAccount, setCurrentAccount] = useState("");
   
   const checkIfWalletIsConnected = async () => {
 
@@ -145,12 +145,9 @@ const App = () => {
   );
 
 
-  /*
-  * This runs our function when the page loads.
-  */
   useEffect(() => {
     checkIfWalletIsConnected();
-  }, [])
+  }, [])*/
   return (
    /* <div className="App">
       <div className="container">

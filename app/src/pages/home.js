@@ -13,8 +13,14 @@ import TransferW from './Wood/Transfer';
 import TransactionW from './Wood/Transaction';
 import TransferS from './Stone/Transfer';
 import TransactionS from './Stone/Transaction';
+import './home.css';
 
 const Home = () => {
+
+    const [balanceFruit, setBalanceFruit] = useState()
+    const [balanceGold, setBalanceGold] = useState()
+    const [balanceStone, setBalanceStone] = useState()
+    const [balanceWood, setBalanceWood] = useState()
 
     const askBalanceFruit = async () => {
         const { ethereum } = window;
@@ -23,6 +29,7 @@ const Home = () => {
         console.log("Retreiving balance")
         let balance = await fruits.balanceOf(accounts[0]);
         console.log("Retrieved total balance...", balance.toNumber());
+        setBalanceFruit(parseInt(balance));
       }
     
       const askBalanceGold = async () => {
@@ -32,6 +39,7 @@ const Home = () => {
         console.log("Retreiving balance")
         let balance = await golds.balanceOf(accounts[0]);
         console.log("Retrieved total balance...", balance.toNumber());
+        setBalanceGold(parseInt(balance));
       }
       
       const askBalanceWood = async () => {
@@ -41,6 +49,7 @@ const Home = () => {
         console.log("Retreiving balance")
         let balance = await woods.balanceOf(accounts[0]);
         console.log("Retrieved total balance...", balance.toNumber());
+        setBalanceWood(parseInt(balance));
       }
     
       const askBalanceStone = async () => {
@@ -50,20 +59,20 @@ const Home = () => {
         console.log("Retreiving balance")
         let balance = await stones.balanceOf(accounts[0]);
         console.log("Retrieved total balance...", balance.toNumber());
-        return balance.toNumber();
+        setBalanceStone(parseInt(balance));
       }
     return (
-        <div>
+        <div className="App">
             <Header/>
             <div className="token">
                 <p className="token-text">Fruit Token</p>
-                <label  onClick={askBalanceFruit} className="b-button balance-button ">
-                    Show Balance: {askBalanceFruit}
-                </label>
+                <button onClick={askBalanceFruit} className="b-button balance-button">
+                    Get Balance: {balanceFruit}
+                </button>
                 <nav>
                     <ul>
-                    <li><Link to="Fruit/Transfer">Transfer</Link></li>
-                    <li><Link to="/Fruit/transaction">Transactions</Link></li>
+                    <li className="Link"><Link to="Fruit/Transfer">Transfer Tokens</Link></li>
+                    <li><Link to="/Fruit/transaction">See Transaction History</Link></li>
                     </ul>
                 </nav>
                 <Routes>
@@ -72,12 +81,12 @@ const Home = () => {
                 </Routes>
                 <p className="token-text">Gold Token</p>
                 <button onClick={askBalanceGold} className="b-button balance-button">
-                    Show Balance
+                    Get Balance: {balanceGold}
                 </button>
                 <nav>
                     <ul>
-                    <li><Link to="/Gold/transfer">Transfer</Link></li>
-                    <li><Link to="/Gold/transaction">Transactions</Link></li>
+                    <li><Link to="/Gold/transfer">Transfer Tokens</Link></li>
+                    <li><Link to="/Gold/transaction">See Transaction History</Link></li>
                     </ul>
                 </nav>
                 <Routes>
@@ -86,12 +95,12 @@ const Home = () => {
                 </Routes>
                 <p className="token-text">Wood Token</p>
                 <button onClick={askBalanceWood} className="b-button balance-button">
-                    Show Balance
+                    Get Balance : {balanceWood}
                 </button>
                 <nav>
                     <ul>
-                    <li><Link to="/Wood/transfer">Transfer</Link></li>
-                    <li><Link to="/Wood/transaction">Transactions</Link></li>
+                    <li><Link to="/Wood/transfer">Transfer Tokens</Link></li>
+                    <li><Link to="/Wood/transaction">See Transaction History</Link></li>
                     </ul>
                 </nav>
                 <Routes>
@@ -100,12 +109,12 @@ const Home = () => {
                 </Routes>
                 <p className="token-text">Stone Token</p>
                 <button onClick={askBalanceStone} className="b-button balance-button">
-                    Show Balance
+                Get Balance : {balanceStone}
                 </button>
                 <nav>
                     <ul>
-                    <li><Link to="/Stone/transfer">Transfer</Link></li>
-                    <li><Link to="/Stone/transaction">Transactions</Link></li>
+                    <li><Link to="/Stone/transfer">Transfer Tokens</Link></li>
+                    <li><Link to="/Stone/transaction">See Transaction History</Link></li>
                     </ul>
                 </nav>
                 <Routes>

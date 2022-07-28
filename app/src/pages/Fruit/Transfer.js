@@ -8,19 +8,28 @@ import {BrowserRouter,Routes,Route, Switch, Link} from "react-router-dom";
 
 
  
+const TransferF = ()=> {
 
+    const [address, setAddress] = useState('')
+    const [amount, setAmount] = useState('')
 
-const TransferF = () => {
+    const transfer = async () => {
+        console.log("Going to pop wallet now to pay gas...")
+        let transferTxn = await fruits.transfer(address, parseInt(amount));
 
-    const getTranactions = async () => {
-        const { ethereum } = window;
-        const accounts = await ethereum.request({ method: "eth_requestAccounts" });   
-        console.log(accounts[0]);
-        console.log("Retreiving txns")
-        const txns =await fetch("https://api-rinkeby.etherscan.io/api?module=account&action=tokentx&contractaddress=0x346bAbd7EE42eC13DAf26a1a21F75eaB5aF3499F&address=0xAABEDDe5e0B28B89D3D71426fFba93975FC16fff&page=1&offset=100&startblock=0&endblock=99999999&sort=asc&apikey=YourApiKeyToken")
-        .then((res) => res.json());
-        console.log(txns.result);
+        console.log("Mining...please wait.")
+        await transferTxn.wait();
+        console.log(amount,address);
+        console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${transferTxn.hash}`);
+    }
+
+    const submit = e => {
+        e.preventDefault()
+        transfer()
       }
+
+
+
 
   return (
     <div className="App">
@@ -29,14 +38,14 @@ const TransferF = () => {
           <p className="token-text">Fruit Token</p>
           <p className="token-text">Transfer</p>
         </div>  
-        <form>
+        <form onSubmit={submit}>
         <label>
             To (Address):
-            <input type="text" name="name" />
+            <input type="text" name="address" value={address}  onChange={e => setAddress( e.target.value )}/>
         </label>
         <label>
-            Value :
-            <input type="text" name="name" />
+            Amount :
+            <input type="text" name="amount" value={amount} onChange={e => setAmount(e.target.value )}/>
         </label>
         <input type="submit" value="Submit" />
         </form>
@@ -45,3 +54,17 @@ const TransferF = () => {
 };
 
 export default TransferF;
+
+
+/*
+<label>
+            To (Address):
+            <input type="text" name="address" value={txn.address}  onChange={e => setTxn({...txn, address: e.target.value })}/>
+            {txn && <p>{txn}</p>}
+        </label>
+        <label>
+            Amount :
+            <input type="text" name="amount" value={txn.amount} onChange={e => setTxn({...txn, address: e.target.value })}/>
+            {txn && <p>{amount}</p>}
+        </label>
+        */
