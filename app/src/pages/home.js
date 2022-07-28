@@ -66,7 +66,7 @@ const Home = () => {
             <Header/>
             <div className="token">
                 <p className="token-text">Fruit Token</p>
-                <a href="https://rinkeby.etherscan.io/address/0x346bAbd7EE42eC13DAf26a1a21F75eaB5aF3499F" target="_blank" rel="noreferrer">
+                <a className="ext" href="https://rinkeby.etherscan.io/address/0x346bAbd7EE42eC13DAf26a1a21F75eaB5aF3499F" target="_blank" rel="noreferrer">
                     0x346bAbd7EE42eC13DAf26a1a21F75eaB5aF3499F
                 </a>
                 <button onClick={askBalanceFruit} className="b-button balance-button">
@@ -83,7 +83,7 @@ const Home = () => {
                     <Route path="/Fruit/transaction" element={<TransactionF />} />
                 </Routes>
                 <p className="token-text">Gold Token</p>
-                <a href="https://rinkeby.etherscan.io/address/0xdc4F37a23a1921Aa765ad0a3c4706C57FAa73029" target="_blank" rel="noreferrer">
+                <a className="ext" href="https://rinkeby.etherscan.io/address/0xdc4F37a23a1921Aa765ad0a3c4706C57FAa73029" target="_blank" rel="noreferrer">
                 0xdc4F37a23a1921Aa765ad0a3c4706C57FAa73029
                 </a>
                 <button onClick={askBalanceGold} className="b-button balance-button">
@@ -100,7 +100,7 @@ const Home = () => {
                     <Route path="/Gold/Transaction" element={<TransactionG />} />
                 </Routes>
                 <p className="token-text">Wood Token</p>
-                <a href="https://rinkeby.etherscan.io/address/0x3a3641BD7188cF01B88A84d69ad5Dea690a9750A" target="_blank" rel="noreferrer">
+                <a className="ext" href="https://rinkeby.etherscan.io/address/0x3a3641BD7188cF01B88A84d69ad5Dea690a9750A" target="_blank" rel="noreferrer">
                 0x3a3641BD7188cF01B88A84d69ad5Dea690a9750A
                 </a>
                 <button onClick={askBalanceWood} className="b-button balance-button">
@@ -117,7 +117,7 @@ const Home = () => {
                     <Route path="/Wood/Transaction" element={<TransactionW />} />
                 </Routes>
                 <p className="token-text">Stone Token</p>
-                <a href="https://rinkeby.etherscan.io/address/0x790C61d3BF7c8085D4e71c1947D7ef15384E24CA" target="_blank" rel="noreferrer">
+                <a className="ext" href="https://rinkeby.etherscan.io/address/0x790C61d3BF7c8085D4e71c1947D7ef15384E24CA" target="_blank" rel="noreferrer">
                 0x790C61d3BF7c8085D4e71c1947D7ef15384E24CA
                 </a>
                 <button onClick={askBalanceStone} className="b-button balance-button">
