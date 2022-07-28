@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 //import fruit from './utils/Fruit.json';
 import fruits from '../../Fruit';
 import Header from '../../components/Header';
-import {BrowserRouter,Routes,Route, Switch, Link} from "react-router-dom";
 import TransactionTable from '../../components/TxnTable/Transactiontable';
 
 
@@ -13,7 +12,8 @@ import TransactionTable from '../../components/TxnTable/Transactiontable';
 
 const TransactionF = () => {
 
-    const getTranactions = async () => {
+        const [txn, setTxn] = useState([])   
+        const getTranactions = async () => {
         const { ethereum } = window;
         const accounts = await ethereum.request({ method: "eth_requestAccounts" });   
         console.log(accounts[0]);
@@ -24,6 +24,7 @@ const TransactionF = () => {
         const propertyValues = Object.values(txns.result[0]);
         console.log(typeof(propertyValues));
         console.log(propertyValues);
+        setTxn(txn);
       }
 
         const rawMaterialArr = [
@@ -42,9 +43,12 @@ const TransactionF = () => {
         ];
 
         const renderTable = () => (
+            <div>
             <button onClick={getTranactions} className="cta-button connect-wallet-button">
               Transactions
             </button>
+            <TransactionTable head = {["Supplier" , "Raw Material", "Quantity Left Kg"]} Arr = {txn}></TransactionTable>
+            </div>
           );
 
   return (
@@ -54,7 +58,7 @@ const TransactionF = () => {
           <p className="token-text">Fruit Token</p>
           <p className="token-text">Transaction History</p>
         </div>  
-        <TransactionTable head = {["Supplier" , "Raw Material", "Quantity Left Kg"]} Arr = {rawMaterialArr}></TransactionTable>
+        <TransactionTable head = {["Supplier" , "Raw Material", "Quantity Left Kg"]} Arr = {txn}></TransactionTable>
         <div className="Txntable">
           {renderTable()}
         </div>

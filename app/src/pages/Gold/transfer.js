@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 //import fruit from './utils/Fruit.json';
 import golds from '../../Gold';
 import Header from '../../components/Header';
-import {BrowserRouter,Routes,Route, Switch, Link} from "react-router-dom";
+import '../Fruit/Transfer.css';
 
 const TransferG = () => {
 
@@ -35,15 +35,15 @@ const TransferG = () => {
           <p className="token-text">Transfer</p>
         </div>  
         <form onSubmit={submit}>
-        <label>
+        <label className="lab">
             To (Address):
             <input type="text" name="address" value={address}  onChange={e => setAddress( e.target.value )}/>
         </label>
-        <label>
+        <label className="lab">
             Amount :
             <input type="text" name="amount" value={amount} onChange={e => setAmount(e.target.value )}/>
         </label>
-        <input type="submit" value="Submit" />
+        <input className="butt" type="submit" value="Submit" />
         </form>
     </div>
   );
