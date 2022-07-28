@@ -1,10 +1,9 @@
 
-import React, { useEffect, useState } from "react";
-//import { ethers } from "ethers";
-//import fruit from './utils/Fruit.json';
+import React, {  useState } from "react";
 import fruits from '../../Fruit';
 import Header from '../../components/Header';
-import {BrowserRouter,Routes,Route, Switch, Link} from "react-router-dom";
+
+import './Transfer.css'
 
 
  

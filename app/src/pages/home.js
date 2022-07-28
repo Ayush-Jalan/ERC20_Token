@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import Header from '../components/Header';
 import fruits from '../Fruit';
 import golds from '../Gold';
 import stones from '../Stone';
 import woods from '../Wood';
-import {BrowserRouter,Routes,Route, Switch, Link} from "react-router-dom";
+import {Routes,Route, Link} from "react-router-dom";
 import TransferF from './Fruit/Transfer';
 import TransactionF from './Fruit/Transaction';
 import TransferG from './Gold/Transfer';
@@ -66,60 +66,72 @@ const Home = () => {
             <Header/>
             <div className="token">
                 <p className="token-text">Fruit Token</p>
+                <a href="https://rinkeby.etherscan.io/address/0x346bAbd7EE42eC13DAf26a1a21F75eaB5aF3499F" target="_blank" rel="noreferrer">
+                    0x346bAbd7EE42eC13DAf26a1a21F75eaB5aF3499F
+                </a>
                 <button onClick={askBalanceFruit} className="b-button balance-button">
                     Get Balance: {balanceFruit}
                 </button>
                 <nav>
-                    <ul>
-                    <li className="Link"><Link to="Fruit/Transfer">Transfer Tokens</Link></li>
+                   
+                    <li><Link to="Fruit/Transfer">Transfer Tokens</Link></li>
                     <li><Link to="/Fruit/transaction">See Transaction History</Link></li>
-                    </ul>
+                    
                 </nav>
                 <Routes>
                     <Route path="Fruit/Transfer" element={<TransferF />} />
                     <Route path="/Fruit/transaction" element={<TransactionF />} />
                 </Routes>
                 <p className="token-text">Gold Token</p>
+                <a href="https://rinkeby.etherscan.io/address/0xdc4F37a23a1921Aa765ad0a3c4706C57FAa73029" target="_blank" rel="noreferrer">
+                0xdc4F37a23a1921Aa765ad0a3c4706C57FAa73029
+                </a>
                 <button onClick={askBalanceGold} className="b-button balance-button">
                     Get Balance: {balanceGold}
                 </button>
                 <nav>
                     <ul>
-                    <li><Link to="/Gold/transfer">Transfer Tokens</Link></li>
-                    <li><Link to="/Gold/transaction">See Transaction History</Link></li>
+                    <li><Link to="/Gold/Transfer">Transfer Tokens</Link></li>
+                    <li><Link to="/Gold/Transaction">See Transaction History</Link></li>
                     </ul>
                 </nav>
                 <Routes>
-                    <Route path="/Gold/transfer" />
-                    <Route path="/Gold/transaction" />
+                    <Route path="/Gold/Transfer" element={<TransferG />}  />
+                    <Route path="/Gold/Transaction" element={<TransactionG />} />
                 </Routes>
                 <p className="token-text">Wood Token</p>
+                <a href="https://rinkeby.etherscan.io/address/0x3a3641BD7188cF01B88A84d69ad5Dea690a9750A" target="_blank" rel="noreferrer">
+                0x3a3641BD7188cF01B88A84d69ad5Dea690a9750A
+                </a>
                 <button onClick={askBalanceWood} className="b-button balance-button">
                     Get Balance : {balanceWood}
                 </button>
                 <nav>
                     <ul>
-                    <li><Link to="/Wood/transfer">Transfer Tokens</Link></li>
-                    <li><Link to="/Wood/transaction">See Transaction History</Link></li>
+                    <li><Link to="/Wood/Transfer">Transfer Tokens</Link></li>
+                    <li><Link to="/Wood/Transaction">See Transaction History</Link></li>
                     </ul>
                 </nav>
                 <Routes>
-                    <Route path="/Wood/transfer" />
-                    <Route path="/Wood/transaction" />
+                    <Route path="/Wood/Transfer" element={<TransferW />} />
+                    <Route path="/Wood/Transaction" element={<TransactionW />} />
                 </Routes>
                 <p className="token-text">Stone Token</p>
+                <a href="https://rinkeby.etherscan.io/address/0x790C61d3BF7c8085D4e71c1947D7ef15384E24CA" target="_blank" rel="noreferrer">
+                0x790C61d3BF7c8085D4e71c1947D7ef15384E24CA
+                </a>
                 <button onClick={askBalanceStone} className="b-button balance-button">
                 Get Balance : {balanceStone}
                 </button>
                 <nav>
                     <ul>
-                    <li><Link to="/Stone/transfer">Transfer Tokens</Link></li>
-                    <li><Link to="/Stone/transaction">See Transaction History</Link></li>
+                    <li><Link to="/Stone/Transfer">Transfer Tokens</Link></li>
+                    <li><Link to="/Stone/Transaction">See Transaction History</Link></li>
                     </ul>
                 </nav>
                 <Routes>
-                    <Route path="/Stone/transfer" />
-                    <Route path="/Stone/transaction" />
+                    <Route path="/Stone/Transfer" element={<TransferS />}  />
+                    <Route path="/Stone/Transaction" element={<TransactionS />} />
                 </Routes>
             </div>
         </div>
