@@ -1,11 +1,5 @@
 import './App.css';
-import React, { useEffect, useState } from "react";
-//import { ethers } from "ethers";
-//import fruit from './utils/Fruit.json';
-import fruits from './Fruit';
-import golds from './Gold';
-import stones from './Stone';
-import woods from './Wood';
+import React, {} from "react";
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 import TransferF from './pages/Fruit/Transfer';
 import TransactionF from './pages/Fruit/Transaction';

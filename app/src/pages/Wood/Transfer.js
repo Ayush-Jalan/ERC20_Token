@@ -28,6 +28,7 @@ const TransferW = () => {
         await transferTxn.wait();
         
         console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${transferTxn.hash}`);
+        setError('Txn successful!');
     } catch(err){
       setError(err.message);
     }
@@ -54,7 +55,6 @@ const TransferW = () => {
         <input className="butt" type="submit" value="Submit" />
         </form>
         {error && <div className="er">{error}</div>}
-        {!error && <div className="er">Txn successful!</div>}
     </div>
   );
 };
