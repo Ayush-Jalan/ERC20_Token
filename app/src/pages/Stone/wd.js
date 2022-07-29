@@ -4,7 +4,6 @@ import React, { useEffect, useState } from "react";
 //import fruit from './utils/Fruit.json';
 import stones from '../../Stone';
 import Header from '../../components/Header';
-import {BrowserRouter,Routes,Route, Switch, Link} from "react-router-dom";
 import TransactionTable from '../../components/TxnTable/Transactiontable';
 
 

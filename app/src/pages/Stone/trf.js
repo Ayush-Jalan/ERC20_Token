@@ -1,7 +1,5 @@
 
 import React, { useEffect, useState } from "react";
-//import { ethers } from "ethers";
-//import fruit from './utils/Fruit.json';
 import stones from '../../Stone';
 import Header from '../../components/Header';
 import '../Fruit/Transfer.css';
