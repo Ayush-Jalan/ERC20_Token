@@ -3,7 +3,7 @@ import React, {  useState } from "react";
 import golds from '../../Gold';
 import Header from '../../components/Header';
 
-import './Transfer.css'
+import '../Fruit/Transfer.css';
 
 
  
