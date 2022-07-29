@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import stones from '../../Stone';
 import Header from '../../components/Header';
 import '../Fruit/Transfer.css';
@@ -10,6 +10,7 @@ const TransferS = () => {
 
   const [address, setAddress] = useState('')
   const [amount, setAmount] = useState('')
+  const [error, setError] = useState();
 
   const submit = e => {
     e.preventDefault()
@@ -18,7 +19,7 @@ const TransferS = () => {
 
 
   const transfer = async () => {
-    
+    try{
         console.log("Going to pop wallet now to pay gas...")
         let transferTxn = await stones.transfer(address, parseInt(amount));
 
@@ -26,6 +27,9 @@ const TransferS = () => {
         await transferTxn.wait();
         
         console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${transferTxn.hash}`);
+    } catch(err){
+      setError(err.message);
+  }
   }
   
      
@@ -48,6 +52,7 @@ const TransferS = () => {
         </label>
         <input className="butt" type="submit" value="Submit" />
         </form>
+        {error && <div className="er">{error}</div>}
     </div>
   );
 };

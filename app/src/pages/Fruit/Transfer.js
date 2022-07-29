@@ -11,8 +11,10 @@ const TransferF = ()=> {
 
     const [address, setAddress] = useState('')
     const [amount, setAmount] = useState('')
+    const [error, setError] = useState(null);
 
     const transfer = async () => {
+      try{
         console.log("Going to pop wallet now to pay gas...")
         let transferTxn = await fruits.transfer(address, parseInt(amount));
 
@@ -20,6 +22,9 @@ const TransferF = ()=> {
         await transferTxn.wait();
         console.log(amount,address);
         console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${transferTxn.hash}`);
+      } catch(err){
+        setError(err.message);
+    }
     }
 
     const submit = e => {
@@ -48,6 +53,7 @@ const TransferF = ()=> {
         </label>
         <input className="butt" type="submit" value="Submit" />
         </form>
+        {error && <div className="er">{error}</div>}
     </div>
   );
 };

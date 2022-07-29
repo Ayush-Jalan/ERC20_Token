@@ -11,15 +11,21 @@ const TransferG = ()=> {
 
     const [address, setAddress] = useState('')
     const [amount, setAmount] = useState('')
+    const [error, setError] = useState(null);
 
     const transfer = async () => {
+        try{
+        setError(null);
         console.log("Going to pop wallet now to pay gas...")
         let transferTxn = await golds.transfer(address, parseInt(amount));
 
         console.log("Mining...please wait.")
         await transferTxn.wait();
-        console.log(amount,address);
+        //console.log(amount,address);
         console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${transferTxn.hash}`);
+        } catch(err){
+            setError(err.message);
+        }
     }
 
     const submit = e => {
@@ -48,22 +54,10 @@ const TransferG = ()=> {
         </label>
         <input className="butt" type="submit" value="Submit" />
         </form>
+        {error && <div className="er">{error}</div>}
     </div>
   );
 };
 
 export default TransferG;
 
-
-/*
-<label>
-            To (Address):
-            <input type="text" name="address" value={txn.address}  onChange={e => setTxn({...txn, address: e.target.value })}/>
-            {txn && <p>{txn}</p>}
-        </label>
-        <label>
-            Amount :
-            <input type="text" name="amount" value={txn.amount} onChange={e => setTxn({...txn, address: e.target.value })}/>
-            {txn && <p>{amount}</p>}
-        </label>
-        */

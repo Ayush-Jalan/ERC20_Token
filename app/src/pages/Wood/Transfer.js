@@ -11,6 +11,7 @@ const TransferW = () => {
 
   const [address, setAddress] = useState('')
   const [amount, setAmount] = useState('')
+  const [error, setError] = useState();
 
   const submit = e => {
     e.preventDefault()
@@ -18,7 +19,7 @@ const TransferW = () => {
   }
 
   const transfer = async () => {
-    
+    try{
         console.log("Going to pop wallet now to pay gas...")
         let transferTxn = await woods.transfer(address, parseInt(amount));
 
@@ -26,6 +27,9 @@ const TransferW = () => {
         await transferTxn.wait();
         
         console.log(`Mined, see transaction: https://rinkeby.etherscan.io/tx/${transferTxn.hash}`);
+    } catch(err){
+      setError(err.message);
+    }
   }
   
      
@@ -48,6 +52,7 @@ const TransferW = () => {
         </label>
         <input className="butt" type="submit" value="Submit" />
         </form>
+        {error && <div className="er">{error}</div>}
     </div>
   );
 };
