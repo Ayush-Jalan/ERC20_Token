@@ -55,6 +55,7 @@ const TransferF = ()=> {
         <input className="butt" type="submit" value="Submit" />
         </form>
         {error && <div className="er">{error}</div>}
+        {!error && <div className="er">Txn successful!</div>}
     </div>
   );
 };
