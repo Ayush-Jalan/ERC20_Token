@@ -1,8 +1,5 @@
 
-import React, { useEffect, useState } from "react";
-//import { ethers } from "ethers";
-//import fruit from './utils/Fruit.json';
-import fruits from '../../Fruit';
+import React, {  useState } from "react";
 import Header from '../../components/Header';
 import TransactionTable from '../../components/TxnTable/Transactiontable';
 

@@ -15,6 +15,7 @@ const TransferF = ()=> {
 
     const transfer = async () => {
       try{
+        setError(null);
         console.log("Going to pop wallet now to pay gas...")
         let transferTxn = await fruits.transfer(address, parseInt(amount));
 

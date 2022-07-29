@@ -20,6 +20,7 @@ const TransferS = () => {
 
   const transfer = async () => {
     try{
+      setError(null);
         console.log("Going to pop wallet now to pay gas...")
         let transferTxn = await stones.transfer(address, parseInt(amount));
 

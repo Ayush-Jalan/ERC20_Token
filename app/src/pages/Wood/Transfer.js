@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 //import { ethers } from "ethers";
 //import fruit from './utils/Fruit.json';
 import woods from '../../Wood';
@@ -20,6 +20,7 @@ const TransferW = () => {
 
   const transfer = async () => {
     try{
+      setError(null);
         console.log("Going to pop wallet now to pay gas...")
         let transferTxn = await woods.transfer(address, parseInt(amount));
 
